@@ -1,4 +1,3 @@
-# library help: gpiozero.readthedocs.io/en/stable/api_input.html
 import RPi.GPIO as GPIO
 import time
 
@@ -23,6 +22,3 @@ class Pir_Sense():
             return True
         else:
             return False
-    
-
-    
