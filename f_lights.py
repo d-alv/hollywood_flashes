@@ -28,16 +28,17 @@ class Flights():
         self.tk = Time_Keeper()
         self.sleep = sleep
         self.choice = choice
-        self.pause = .2
-        self.repetitions= int(10/(self.pause * 5))
+        self.pause = .16
+        self.repetitions= int(10/(self.pause * 6))
         
         self.light1 = '10000000'
         self.light2 = '01000000'
         self.light3 = '00100000'
         self.light4 = '00010000'
         self.light5 = '00001000' # remember I only use first 5 pins
+        self.light6 = '00000100'
         self.lights = [self.light1,self.light2,self.light3,
-                       self.light4,self.light5]
+                       self.light4,self.light5, self.light6]
         self.nlights =[]
         self.ulights=[]
         self.current_rotation = 0
@@ -56,6 +57,8 @@ class Flights():
             value = value[::-1]
             diff = list(value)
             self.nlights.append(diff)
+        
+        self._random_pick(rotation=9)
             
             
     def _random_pick(self, start=False, rotation=1):
@@ -83,6 +86,8 @@ class Flights():
             self.fifth = self.choice(rlights)
             self.ulights.append(self.fifth)
             rlights.remove(self.fifth)
+            self.sixth = rlights[0]
+            self.ulights.append(self.sixth)
             del rlights
         
        # for value in self.ulights:
@@ -97,6 +102,8 @@ class Flights():
                     self.light4 = value
                 elif value ==['0','0','0','1','0','0','0','0']:
                     self.light5 = value
+                elif value == ['0','0','1','0','0','0','0','0']:
+                    self.light6 = value
         
             self.flash_on(self.ulights)
             print("lights are good")
@@ -137,6 +144,8 @@ class Flights():
                 self.ns.play_shutter("/home/pi/Desktop/hollywood/mid_right_nnew.wav")
             elif cam ==self.light5:
                 self.ns.play_shutter("/home/pi/Desktop/hollywood/far_right_nnnew.wav")
+            elif cam ==self.light6:
+                self.ns.play_shutter("/home/pi/Desktop/hollywood/new_new.wav")
                 
                 
                 #self.ns.play_shutter("/home/pi/Desktop/hollywood/bolt2.wav")
@@ -145,6 +154,7 @@ class Flights():
             self.sleep(self.pause)
             self.clear()
             self.latch()
+            
                 
         self.clear()
         self.latch()
