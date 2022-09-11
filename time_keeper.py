@@ -26,6 +26,7 @@ class Time_Keeper:
     def set_start(self):
         """method sets start_time to zero for timer"""
         self.start_time = self.time.time()
+        self.check_time()
         
     def waiting(self):
         """this is a class that effectively works as a
@@ -37,7 +38,3 @@ class Time_Keeper:
             return False
         else:
             return True 
-            
-            
-            
-        
