@@ -33,7 +33,6 @@ class MainClass:
         self.start_time = time.time()
         self.flight.setup()
         while True:
-            print(self.tk.elapsed_time)
             self.tk.check_time()
             if self.pir.sensing():
                 if self.tk.elapsed_time >=self.need_time:
@@ -53,5 +52,3 @@ class MainClass:
 if __name__ == "__main__":
     mc = MainClass()
     mc.run_program()
-            
-        
