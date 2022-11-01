@@ -115,12 +115,9 @@ class Flights():
         # insert paparazzi noises first?
         # as it stands, this only runs once, I need it to run more than once...
        
-       # FOR NOW, IGNORE THE AUDIO PARTS
-       
         
         print("should work")
-        for cam in source: # remember source is a list of lists now
-                 
+        for cam in source: # remember source is a list of lists now       
             self.tk.check_time()
             # if cam != 
             for bit in cam:
@@ -146,16 +143,12 @@ class Flights():
                 self.ns.play_shutter("/home/pi/Desktop/hollywood/far_right_nnnew.wav")
             elif cam ==self.light6:
                 self.ns.play_shutter("/home/pi/Desktop/hollywood/new_new.wav")
-                
-                
+              
                 #self.ns.play_shutter("/home/pi/Desktop/hollywood/bolt2.wav")
-                
-                
+             
             self.sleep(self.pause)
             self.clear()
-            self.latch()
-            
-                
+            self.latch()      
         self.clear()
         self.latch()
         self._random_pick()
